@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Tarefas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #8e9eab, #eef2f3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    a {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Lista de Tarefas</h1>
+
+  <a th:href="@{/tarefas/nova}">+ Nova Tarefa</a>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Concluída</th>
+      <th>Usuário</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tarefa : ${tarefas}">
+      <td th:text="${tarefa.id}">1</td>
+      <td th:text="${tarefa.descricao}">Descrição da tarefa</td>
+      <td th:text="${tarefa.concluida ? 'Sim' : 'Não'}">Não</td>
+      <td th:text="${tarefa.usuario != null ? tarefa.usuario.nome : '—'}">Usuário</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

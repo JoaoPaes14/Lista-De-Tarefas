@@ -1,6 +1,7 @@
-package com.example.ListaDeTarefas.repository;
+package com.exemplo.listadetarefas.repository;
 
-import com.example.ListaDeTarefa.model.Usuario;
+import com.exemplo.listadetarefas.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {}
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+}

@@ -1,7 +1,7 @@
-package com.example.ListaDeTarefas.repository;
+package com.exemplo.listadetarefas.repository;
 
-import com.example.ListaDeTarefas.model.Tarefa;
+import com.exemplo.listadetarefas.model.Tarefa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TarefaRepository extends JpaRepository<Tarefa, Long> {}
-
+public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
+}
